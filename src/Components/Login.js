@@ -20,18 +20,25 @@ const Login = () => {
             <img src={login_avatar} alt="AVATAR" />
           </span>
           <div className={styles.wrap_username} data-validate="Enter username">
-            <input className={styles.input100} type="text" name="username" />
-            <span
-              className={styles.focus_input100}
-              data-placeholder="Username"
-            ></span>
+            <input
+              className={styles.input100}
+              type="text"
+              name="username"
+              placeholder="Username"
+            />
           </div>
           <div className={styles.wrap_username} data-validate="Enter password">
-            <input className={styles.input100} type="password" name="pass" />
-            <span
-              className={styles.focus_input100}
-              data-placeholder="Password"
-            ></span>
+            <input
+              className={styles.input100}
+              type={!passwordVisible ? "text" : "password"}
+              name="pass"
+              placeholder="Password"
+            />
+            <img
+              className={styles.password_image}
+              src={passwordVisible ? hide_img : show_img}
+              onClick={togglePasswordVisibility}
+            ></img>
           </div>
           <div className={styles.form_btn}>
             <button className={styles.login100_form_btn}>Login</button>
@@ -47,6 +54,12 @@ const Login = () => {
               <span className={styles.txt1}>Don't have an account? </span>
               <a href="#" className={styles.txt2}>
                 Sign up
+              </a>
+            </li>
+            <li>
+              <span className={styles.txt1}>Are you an admin? </span>
+              <a href="#" className={styles.txt2}>
+                Admin login
               </a>
             </li>
           </ul>
